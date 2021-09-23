@@ -21,6 +21,7 @@
   "homepage": "https://github.com/JannekS/hcs21-final-travelblog-node#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mysql2": "^2.3.0",
     "nodemon": "^2.0.12"
