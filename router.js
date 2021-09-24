@@ -12,7 +12,7 @@ router.get("/new_author", authorController.createAuthor);
 router.post("/new_author", authorController.createAuthor); */
 
 router.get("/posts", postController.servePreviews);
-// router.get("/post", postController.renderPost);
+router.get("/post/:id", postController.servePost);
 /* router.get("/new_post", postController.createPost);
 router.post("/new_post", postController.createPost); */
 

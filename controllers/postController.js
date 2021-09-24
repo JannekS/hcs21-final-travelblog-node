@@ -10,10 +10,14 @@ function servePreviews(req, res) {
 }
 
 function servePost(req, res) {
-    const id = req.query.id;
+    const id = req.params.id;
 
     post.getPostById(id, function(result) {
-        const pageData = {
+        
+        // console.log(result);
+        res.json(result);
+        
+        /* const pageData = {
             post: result
         }
 
@@ -21,7 +25,7 @@ function servePost(req, res) {
             pageData.author = result;
 
             res.render("post.ejs", pageData);
-        });
+        }); */
     });
 }
 

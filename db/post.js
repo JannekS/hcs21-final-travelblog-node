@@ -13,7 +13,7 @@ function getPostPreviews(callback) {
 }
 
 function getPostById(id, callback) {
-    const sql = `SELECT posts.* , authors.name  AS auth_name, authors.picture AS auth_picture FROM posts JOIN authors ON authors.id = posts.author_id WHERE posts.id = ?`;
+    const sql = `SELECT posts.* , authors.name  AS author_name, authors.image AS author_image, locations.* FROM posts JOIN authors ON authors.id = posts.author_id JOIN locations ON locations.id = posts.location_id WHERE posts.id = ?`;
     const params = [ id ];
     connection.query(sql, params, function(err, result) {
         callback(result[0]);
