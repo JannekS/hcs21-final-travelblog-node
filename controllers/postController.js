@@ -1,11 +1,17 @@
 const post = require("../db/post");
-// const author = require("../db/author");
 
 function servePreviews(req, res) {
     post.getPostPreviews(function(result) {
 
-        // console.log(result);
-        res.json(result);
+        console.log(result);
+
+        if (result) {
+            res.json(result);
+        } else {
+            res.json(false);
+        }
+
+        
     });
 }
 
@@ -14,18 +20,17 @@ function servePost(req, res) {
 
     post.getPostById(id, function(result) {
         
-        // console.log(result);
-        res.json(result);
-        
-        /* const pageData = {
-            post: result
+        // you could calculate the trip duartion here and add it as a property to the result
+
+        console.log(result);
+
+        if (result) {
+            result.status = "OK";
+            res.json(result);
+        } else {
+            
+            res.json({status: "Failed" }); // --> serve an object which can be used for 404 page
         }
-
-        author.getAuthorById(pageData.post.author_id, function(result) {
-            pageData.author = result;
-
-            res.render("post.ejs", pageData);
-        }); */
     });
 }
 

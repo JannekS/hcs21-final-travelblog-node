@@ -14,13 +14,11 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", function(req, res) {
-    console.log("Some random user just requested the homepage...");
-    res.send("Hello World!");
+    console.log("Someone requested the server root url...");
+    res.send("404 - This page does not exist...");
 })
 
 app.use(router);
-// SAME AS
-// app.use("/", router);
 
 app.listen(port, function() {
     console.log(`Listening on ${port}`);
