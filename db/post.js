@@ -21,14 +21,4 @@ function getPostById(id, callback) {
     });
 }
 
-function insertPost(post, callback) { // maybe only implement it on the backend
-    const sql = `INSERT INTO posts (title, post, picture, author_id) VALUES(?, ?, ?, ?)`;   //insert the right values and parameters
-    const params = [ post.title, post.description, post.picture, post.author_id ];                 //insert the right values and parameters
-
-    connection.query(sql, params, function(err, result) {
-        console.log(result);
-        callback(result);
-    });
-}
-
-module.exports = { getPostPreviews, getPostById, insertPost };
+module.exports = { getPostPreviews, getPostById };

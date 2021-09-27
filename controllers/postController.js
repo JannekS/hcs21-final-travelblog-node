@@ -37,42 +37,9 @@ function servePost(req, res) {
             res.json(result);
         } else {
             
-            res.json({status: "Failed" }); // --> serve an object which can be used for 404 page
+            res.json({status: "Failed" });
         }
     });
 }
 
-/* function createPost(req, res) {
-    if (req.body.submitted) {
-        // It would be a good idea to use the validator here
-        const title = req.body.title;
-        const description = req.body.description;
-        const picture = req.body.image;
-        const author_id = req.body.author;
-
-        const newPost = { title, description, picture, author_id };
-
-        console.log(newPost);
-
-        post.insertPost(newPost, function(result) {
-
-            author.getAllAuthors(function(result) {
-                const pageData = {
-                    authors: result
-                }
-                res.render("postNew.ejs", pageData);
-            });
-        });
-    } else {
-        author.getAllAuthors(function(result) {
-            const pageData = {
-                authors: result
-            }
-            res.render("postNew.ejs", pageData);
-        });        
-    }
-
-    
-} */
-
-module.exports = { servePreviews, servePost, /* createPost */ };
+module.exports = { servePreviews, servePost };
