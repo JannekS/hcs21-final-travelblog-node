@@ -1,7 +1,7 @@
 const connection = require("./connection");
 
 function getPostPreviews(callback) {
-    const sql = `SELECT posts.* , authors.name  AS author_name, authors.image AS author_image, locations.* FROM posts JOIN authors ON authors.id = posts.author_id JOIN locations ON locations.id = posts.location_id`;
+    const sql = `SELECT posts.* , authors.name  AS author_name, authors.image AS author_image, locations.* FROM posts JOIN authors ON authors.id = posts.author_id JOIN locations ON locations.id = posts.location_id ORDER BY date_from DESC`;
     connection.query(sql, function(err, result) {
         if (err) {
             console.log(err);
